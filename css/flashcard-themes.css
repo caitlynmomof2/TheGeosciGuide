@@ -1,0 +1,433 @@
+/* Subject-Specific Flashcard Theme Layouts */
+
+.flashcard-container {
+    perspective: 1000px;
+    margin: 20px auto;
+    max-width: 500px;
+}
+
+.flashcard {
+    width: 100%;
+    min-height: 300px;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.flashcard.flipped {
+    transform: rotateY(180deg);
+}
+
+.flashcard-front,
+.flashcard-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    font-weight: bold;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.flashcard-back {
+    transform: rotateY(180deg);
+}
+
+/* ===== TIMELINE LAYOUT (Geologic Time) ===== */
+.flashcard-layout-timeline .flashcard-front {
+    background: linear-gradient(135deg, #E74C3C, #C0392B);
+    color: white;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.flashcard-layout-timeline .flashcard-back {
+    background: linear-gradient(135deg, #34495E, #2C3E50);
+    color: #ECF0F1;
+    flex-direction: column;
+}
+
+.timeline-marker {
+    font-size: 48px;
+    margin: 10px 0;
+}
+
+/* ===== CRYSTAL GRID LAYOUT (Mineralogy) ===== */
+.flashcard-layout-crystal-grid .flashcard-front {
+    background: linear-gradient(135deg, #3498DB, #2980B9);
+    color: white;
+    flex-direction: column;
+}
+
+.flashcard-layout-crystal-grid .flashcard-back {
+    background: linear-gradient(135deg, #1ABC9C, #16A085);
+    color: white;
+    flex-direction: column;
+}
+
+.crystal-animation {
+    font-size: 64px;
+    animation: rotate-crystal 4s linear infinite;
+}
+
+@keyframes rotate-crystal {
+    0% { transform: rotateY(0deg) rotateZ(0deg); }
+    100% { transform: rotateY(360deg) rotateZ(360deg); }
+}
+
+/* ===== ROCK SAMPLES LAYOUT (Petrology) ===== */
+.flashcard-layout-rock-samples .flashcard-front {
+    background: linear-gradient(135deg, #E67E22, #D35400);
+    color: white;
+    flex-direction: column;
+}
+
+.flashcard-layout-rock-samples .flashcard-back {
+    background: linear-gradient(135deg, #8B7355, #654321);
+    color: #F5DEB3;
+    flex-direction: column;
+}
+
+.rock-image-placeholder {
+    width: 120px;
+    height: 120px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 64px;
+}
+
+/* ===== AQUIFER DIAGRAM LAYOUT (Hydrogeology) ===== */
+.flashcard-layout-aquifer-diagram .flashcard-front {
+    background: linear-gradient(180deg, #87CEEB 0%, #4FC3F7 50%, #0277BD 100%);
+    color: white;
+    flex-direction: column;
+}
+
+.flashcard-layout-aquifer-diagram .flashcard-back {
+    background: linear-gradient(135deg, #00796B, #004D40);
+    color: #B2DFDB;
+}
+
+.aquifer-visualization {
+    width: 200px;
+    height: 150px;
+    border: 3px solid white;
+    background: linear-gradient(to bottom, 
+        rgba(255, 255, 255, 0.1) 0%, 
+        rgba(100, 200, 255, 0.3) 40%,
+        rgba(100, 150, 200, 0.5) 70%,
+        rgba(80, 120, 160, 0.8) 100%);
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+    margin: 15px 0;
+}
+
+.water-flow {
+    width: 100%;
+    height: 20%;
+    background: #4FC3F7;
+    position: absolute;
+    animation: flow-animation 2s ease-in-out infinite;
+}
+
+@keyframes flow-animation {
+    0%, 100% { transform: translateX(-100%); opacity: 0; }
+    50% { transform: translateX(100%); opacity: 1; }
+}
+
+/* ===== PROCESS FLOW LAYOUT (Rock Cycle) ===== */
+.flashcard-layout-process-flow .flashcard-front {
+    background: conic-gradient(from 0deg, #27AE60, #F39C12, #E74C3C, #9B59B6, #27AE60);
+    color: white;
+    animation: gradient-rotation 6s linear infinite;
+}
+
+.flashcard-layout-process-flow .flashcard-back {
+    background: linear-gradient(135deg, #16A085, #117A65);
+    color: white;
+}
+
+.process-circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 4px solid white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+    margin: 10px 0;
+}
+
+/* ===== LAYERED CARDS LAYOUT (Stratigraphy) ===== */
+.flashcard-layout-layered-cards .flashcard-front {
+    background: linear-gradient(to bottom, 
+        #FFE4B5 0%, 
+        #DEB887 25%, 
+        #D2B48C 50%, 
+        #8B7355 75%, 
+        #654321 100%);
+    color: white;
+    flex-direction: column;
+}
+
+.flashcard-layout-layered-cards .flashcard-back {
+    background: linear-gradient(135deg, #5D4037, #3E2723);
+    color: #D7CCC8;
+}
+
+.layer-visualization {
+    width: 200px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    margin: 15px 0;
+}
+
+.layer {
+    flex: 1;
+    border: 2px solid white;
+    border-radius: 4px;
+    animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+    0%, 100% { opacity: 0.8; }
+    50% { opacity: 1; }
+}
+
+/* ===== CROSS-SECTION LAYOUT (Volcanology) ===== */
+.flashcard-layout-cross-section .flashcard-front {
+    background: linear-gradient(135deg, #C0392B, #A93226);
+    color: white;
+    flex-direction: column;
+}
+
+.flashcard-layout-cross-section .flashcard-back {
+    background: linear-gradient(135deg, #76473B, #58261F);
+    color: #FADBD8;
+}
+
+.volcano-profile {
+    width: 150px;
+    height: 120px;
+    position: relative;
+    margin: 15px 0;
+}
+
+.volcano-cone {
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 100px solid #D35400;
+    position: absolute;
+    bottom: 0;
+    left: 25px;
+}
+
+.magma-chamber {
+    width: 80px;
+    height: 40px;
+    background: #FF6B6B;
+    border-radius: 50%;
+    position: absolute;
+    bottom: -30px;
+    left: 35px;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 0.8; }
+    50% { transform: scale(1.2); opacity: 1; }
+}
+
+/* ===== WORLD MAP LAYOUT (Plate Tectonics) ===== */
+.flashcard-layout-world-map .flashcard-front {
+    background: linear-gradient(135deg, #2980B9, #1E5A96);
+    color: white;
+}
+
+.flashcard-layout-world-map .flashcard-back {
+    background: linear-gradient(135deg, #1A472A, #0D2E17);
+    color: #A8E6CF;
+}
+
+.map-visualization {
+    width: 180px;
+    height: 120px;
+    background: #3498DB;
+    border-radius: 8px;
+    margin: 15px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.plate-boundary {
+    position: absolute;
+    height: 2px;
+    background: #FFD700;
+    animation: pulse-line 2s ease-in-out infinite;
+}
+
+@keyframes pulse-line {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+}
+
+/* ===== 3D PERSPECTIVE LAYOUT (Structural Geology) ===== */
+.flashcard-layout-3d-perspective .flashcard-front {
+    background: linear-gradient(135deg, #8E44AD, #6C3483);
+    color: white;
+}
+
+.flashcard-layout-3d-perspective .flashcard-back {
+    background: linear-gradient(135deg, #17202A, #0B2027);
+    color: #D7BDE2;
+}
+
+.structure-3d {
+    width: 150px;
+    height: 120px;
+    margin: 15px 0;
+    position: relative;
+    transform-style: preserve-3d;
+    animation: rotate-3d 6s linear infinite;
+}
+
+@keyframes rotate-3d {
+    0% { transform: rotateX(0deg) rotateY(0deg); }
+    100% { transform: rotateX(360deg) rotateY(360deg); }
+}
+
+.fold-line {
+    width: 100%;
+    height: 2px;
+    background: white;
+    position: absolute;
+    top: 50%;
+    transform-origin: center;
+    transform: perspective(500px) rotateX(45deg);
+}
+
+/* ===== PROCESS SEQUENCE LAYOUT (Physical Geology) ===== */
+.flashcard-layout-process-sequence .flashcard-front {
+    background: linear-gradient(135deg, #B8A038, #9D8E32);
+    color: white;
+}
+
+.flashcard-layout-process-sequence .flashcard-back {
+    background: linear-gradient(135deg, #7F5C0B, #5C4409);
+    color: #F4E4A6;
+}
+
+.sequence-visualization {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    margin: 15px 0;
+}
+
+.sequence-step {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    animation: sequence-pulse 3s ease-in-out infinite;
+}
+
+.sequence-step:nth-child(2) {
+    animation-delay: 0.3s;
+}
+
+.sequence-step:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+@keyframes sequence-pulse {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
+    .flashcard-front,
+    .flashcard-back {
+        padding: 20px;
+        min-height: 250px;
+    }
+
+    .crystal-animation {
+        font-size: 48px;
+    }
+
+    .volcano-cone {
+        border-left: 40px solid transparent;
+        border-right: 40px solid transparent;
+        border-bottom: 80px solid #D35400;
+        left: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .flashcard-front,
+    .flashcard-back {
+        padding: 15px;
+        min-height: 220px;
+        font-size: 14px;
+    }
+
+    .crystal-animation {
+        font-size: 36px;
+    }
+
+    .timeline-marker {
+        font-size: 36px;
+    }
+
+    .rock-image-placeholder {
+        width: 80px;
+        height: 80px;
+        font-size: 48px;
+    }
+
+    .layer-visualization {
+        width: 150px;
+        height: 120px;
+    }
+
+    .aquifer-visualization {
+        width: 150px;
+        height: 120px;
+    }
+}
+
+/* ===== ACCESSIBILITY ===== */
+@media (prefers-reduced-motion: reduce) {
+    .flashcard,
+    .crystal-animation,
+    .water-flow,
+    .magma-chamber,
+    .plate-boundary,
+    .structure-3d,
+    .sequence-step {
+        animation: none !important;
+    }
+}
